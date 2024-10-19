@@ -77,18 +77,14 @@ class SushiRollController:
                 return
         raise ValueError("Ролл не найден.")
 
-# Пример использования
 controller = SushiRollController()
 
-# Создание роллов
 california_roll = SushiRoll("California Roll", "Sushi Rice", "Nori", ["Crab Sticks", "Avocado"], ["Egg", "Sesame Seeds"])
 controller.add_roll(california_roll)
 
-# Получение представлений
 restaurant_view = controller.get_rolls_for_restaurant()
 website_view = controller.get_rolls_for_website()
 
-# Обновление ролла с проверкой прав доступа
 try:
     controller.update_roll("California Roll", new_rice="Brown Rice", user_role="admin")
 except PermissionError as e:
